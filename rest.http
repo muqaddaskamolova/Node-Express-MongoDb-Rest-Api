@@ -1,0 +1,19 @@
+GET  http://127.0.0.1:3000
+
+@hostname = http://127.0.0.1:3000
+
+get {{hostname}}/products
+
+### Create a product
+post {{hostname}}/products/add
+Accept: application/json
+
+### Get a product by id
+get {{hostname}}/products/id
+
+### Patch a product by id 
+patch {{hostname}}/products/id
+Accept: application/json
+### Delete a product by id
+delete {{hostname}}/products/id
+
