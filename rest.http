@@ -1,19 +1,55 @@
 GET  http://127.0.0.1:3000
 
 @hostname = http://127.0.0.1:3000
+###
 
 get {{hostname}}/products
 
 ### Create a product
-post {{hostname}}/products/add
-Accept: application/json
+POST http://localhost:3000/products/add HTTP/1.1
+Content-Type: : application/json
+
+{
+  "name": "iPhone 12", 
+  "price": 2000
+}
 
 ### Get a product by id
-get {{hostname}}/products/id
+get {{hostname}}/products/6480700822321d582af7c19a HTTP/1.1
+
 
 ### Patch a product by id 
-patch {{hostname}}/products/id
+patch http://localhost:3000/products/6480700812321d582af7c19a HTTP/1.1
 Accept: application/json
-### Delete a product by id
-delete {{hostname}}/products/id
 
+{
+  "name": "iPhone 14 Pro", 
+  "price": 3999
+}
+
+### Delete a product by id
+delete {{hostname}}/products/64809f0211aede21388052f6
+
+###
+GET {{hostname}}/test?name=iMac&price=3500
+
+###
+GET {{hostname}}/test/456734265/iMac
+
+
+###
+post http://localhost:3000/test
+Content-Type: :   application/x-www-form-urlencoded
+
+ name=iMacPro&price=4000
+###
+POST http://localhost:3000/test
+content-type: application/json
+
+{
+  "username": "bobby",
+  "password": "dogsandcats123"
+}
+
+###
+GET {{hostname}}/tests
